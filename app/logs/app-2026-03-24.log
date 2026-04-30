@@ -1,0 +1,25 @@
+2026-03-24 23:00:46 [INFO] news-sina - 拉取新浪财经7x24资讯 | count=10 pageSize=10
+2026-03-24 23:00:47 [INFO] news-sina - 新浪资讯拉取完成 | fetched=10 rawTotal=10 afterFilter=10
+2026-03-24 23:00:51 [INFO] news-sina - 拉取新浪财经7x24资讯 | count=10 pageSize=10
+2026-03-24 23:00:51 [INFO] news-sina - 新浪资讯拉取完成 | fetched=10 rawTotal=10 afterFilter=10
+2026-03-24 23:38:17 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=data/froadclaw.db
+2026-03-24 23:38:17 [INFO] news-cls - 拉取财联社电报 | count=15
+2026-03-24 23:38:17 [INFO] news-dfcf - 拉取东方财富资讯 | count=15 pages=2
+2026-03-24 23:38:17 [INFO] news-sina - 拉取新浪财经7x24资讯 | count=15 pageSize=15
+2026-03-24 23:38:17 [INFO] news-cls - 财联社电报拉取完成 | fetched=15
+2026-03-24 23:38:18 [INFO] news-sina - 新浪资讯拉取完成 | fetched=15 rawTotal=15 afterFilter=15
+2026-03-24 23:38:18 [INFO] news-dfcf - 东方财富标题去重: 去除 2 条同标题重复 | before=20 after=18 dropped=2
+2026-03-24 23:38:18 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=15
+2026-03-24 23:38:18 [INFO] news-store - 资讯入库: 45 条, 新增 45 条 | total=45 inserted=45
+2026-03-24 23:53:55 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=E:\VSCode_space\froadclaw\app\data\froadclaw.db
+2026-03-24 23:53:55 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen-plus
+2026-03-24 23:54:21 [INFO] openai-compatible - LLM 响应: 25120ms, finish=stop | provider=qwen model=qwen-plus durationMs=25120 promptTokens=6268 completionTokens=1079 finishReason=stop toolCallCount=0
+2026-03-24 23:54:21 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=6268 completionTokens=1079
+2026-03-25 00:25:10 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=E:\VSCode_space\froadclaw\app\data\froadclaw.db
+2026-03-25 00:25:10 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen-plus
+2026-03-25 00:25:35 [INFO] openai-compatible - LLM 响应: 24202ms, finish=stop | provider=qwen model=qwen-plus durationMs=24202 promptTokens=5337 completionTokens=1046 finishReason=stop toolCallCount=0
+2026-03-25 00:25:35 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=5337 completionTokens=1046
+2026-03-25 00:26:24 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=E:\VSCode_space\froadclaw\app\data\froadclaw.db
+2026-03-25 00:26:24 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 2 条 | count=2 model=qwen-plus
+2026-03-25 00:26:25 [INFO] openai-compatible - LLM 响应: 1270ms, finish=stop | provider=qwen model=qwen-plus durationMs=1270 promptTokens=541 completionTokens=20 finishReason=stop toolCallCount=0
+2026-03-25 00:26:25 [INFO] news-llm-filter - LLM 筛选完成: 解析 2/2 条 | parsed=2 total=2 promptTokens=541 completionTokens=20

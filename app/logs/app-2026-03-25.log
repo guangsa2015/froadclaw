@@ -1,0 +1,284 @@
+2026-03-25 22:47:42 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-25 22:47:42 [INFO] config - 加载配置文件 | path=E:\VSCode_space\froadclaw\app\configs\config.yaml
+2026-03-25 22:47:42 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=E:\VSCode_space\froadclaw\app\data\froadclaw.db
+2026-03-25 22:47:42 [INFO] llm-registry - 注册 LLM Provider | id=qwen
+2026-03-25 22:47:42 [INFO] main - LLM Provider 注册成功，可用模型: qwen3.5-plus, qwen3.5-flash | id=qwen models=["qwen3.5-plus","qwen3.5-flash"]
+2026-03-25 22:47:42 [INFO] scheduler-store - scheduled_task 表已就绪
+2026-03-25 22:47:42 [INFO] channel-registry - 注册渠道 | id=feishu
+2026-03-25 22:47:42 [INFO] builtin-tools - 内置工具创建完成 | count=5 names=["schedule_reminder","list_reminders","cancel_reminder","web_search","finance_news"]
+2026-03-25 22:47:42 [INFO] tool-registry - 注册工具 | name=schedule_reminder
+2026-03-25 22:47:42 [INFO] tool-registry - 注册工具 | name=list_reminders
+2026-03-25 22:47:42 [INFO] tool-registry - 注册工具 | name=cancel_reminder
+2026-03-25 22:47:42 [INFO] tool-registry - 注册工具 | name=web_search
+2026-03-25 22:47:42 [INFO] tool-registry - 注册工具 | name=finance_news
+2026-03-25 22:47:42 [INFO] scheduler - agent 触发回调已注册
+2026-03-25 22:47:42 [INFO] main - HTTP 服务已启动 | port=3000
+2026-03-25 22:47:42 [INFO] channel-registry - 启动渠道 | id=feishu
+2026-03-25 22:47:42 [INFO] feishu - 启动飞书 WebSocket 长连接
+2026-03-25 22:47:43 [INFO] feishu - 获取 bot 信息成功 | botOpenId=ou_a3b753eb9b5d323ebb5325b9c7349580
+2026-03-25 22:47:43 [INFO] feishu - 飞书 WebSocket 已连接
+2026-03-25 22:47:43 [INFO] scheduler - 调度引擎启动，已加载 0 个任务 | total=0 registered=0 expired=0
+2026-03-25 22:47:43 [INFO] main - FroadClaw-Agent 已就绪
+2026-03-25 22:48:04 [INFO] router - 收到消息: 财经新闻 | messageId=om_x100b530b172534a4b10baab090e998c senderId=ou_65e2068ef6b4337724869522665ca716 chatId=oc_272aa140fde4a576cceab919c9fb12c2 isGroup=false
+2026-03-25 22:48:04 [INFO] agent-loop - 开始处理: 财经新闻 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 turn=22 historyLen=6 sender=ou_65e2068ef6b4337724869522665ca716
+2026-03-25 22:48:04 [INFO] agent-loop - 模型路由 [work] | provider=qwen model=qwen3.5-plus scene=work
+2026-03-25 22:48:04 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 9 条消息 | iteration=1 totalMessages=7 sentMessages=9 hasSummary=true profileCount=6
+2026-03-25 22:48:07 [INFO] openai-compatible - LLM 响应: 3132ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=3132 promptTokens=8487 completionTokens=137 finishReason=tool_calls toolCallCount=1
+2026-03-25 22:48:07 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=8487 completionTokens=137
+2026-03-25 22:48:07 [INFO] agent-loop - 执行工具: finance_news({"count": 15, "importance": "全部"}) | tool=finance_news callId=call_38d40ff5469f4668a7b4e654
+2026-03-25 22:48:08 [INFO] tool-finance-news - 执行财经资讯获取 | rawCount=15 minImportance=low sourceCount=3
+2026-03-25 22:48:08 [INFO] news-cls - 拉取财联社电报 | count=25
+2026-03-25 22:48:08 [INFO] news-dfcf - 拉取东方财富资讯 | count=25 pages=3
+2026-03-25 22:48:08 [INFO] news-sina - 拉取新浪财经7x24资讯 | count=25 pageSize=25
+2026-03-25 22:48:08 [INFO] news-sina - 新浪资讯拉取完成 | fetched=25 rawTotal=25 afterFilter=25
+2026-03-25 22:48:08 [INFO] news-cls - 财联社电报拉取完成 | fetched=25
+2026-03-25 22:48:08 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=25
+2026-03-25 22:48:08 [INFO] tool-finance-news - 多渠道汇聚 75 条原始资讯 | totalRaw=75 sources=["cls","dfcf","sina"]
+2026-03-25 22:48:08 [INFO] news-store - 资讯入库: 75 条, 新增 75 条 | total=75 inserted=75
+2026-03-25 22:48:08 [INFO] tool-finance-news - 新入库 75 条 | inserted=75
+2026-03-25 22:48:08 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen-plus
+2026-03-25 22:48:49 [INFO] openai-compatible - LLM 响应: 40109ms, finish=stop | provider=qwen model=qwen-plus durationMs=40109 promptTokens=5515 completionTokens=1785 finishReason=stop toolCallCount=0
+2026-03-25 22:48:49 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=5515 completionTokens=1785
+2026-03-25 22:48:49 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 25 条 | count=25 model=qwen-plus
+2026-03-25 22:49:12 [INFO] openai-compatible - LLM 响应: 23610ms, finish=stop | provider=qwen model=qwen-plus durationMs=23610 promptTokens=3086 completionTokens=1032 finishReason=stop toolCallCount=0
+2026-03-25 22:49:12 [INFO] news-llm-filter - LLM 筛选完成: 解析 25/25 条 | parsed=25 total=25 promptTokens=3086 completionTokens=1032
+2026-03-25 22:49:12 [INFO] tool-finance-news - 输出 15 条 | kept=34 filtered=15
+2026-03-25 22:49:12 [INFO] agent-loop - 工具结果: 最新财经资讯（共 15 条）:
+
+🔴 [1] 22:31 美国能源信息管理局：上周原油库存增加693万桶 [环球市场情报, 期货市场情报, 原油市场动态]
+   财联社3月25日电，美国一周原油库存增加692.6万桶，市场预估为增加47.7万桶。
+
+🔴 [2] 22:46 伊朗外交部：伊朗没有与美国谈判 将继续行使自卫权 [期货市场情报, 中东冲突]
+   【伊朗外交部：伊朗没有与美国谈判 将 | tool=finance_news isError=false durationMs=64495 rawLength=2862
+2026-03-25 22:49:12 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 11 条消息 | iteration=2 totalMessages=9 sentMessages=11 hasSummary=true profileCount=6
+2026-03-25 22:49:23 [INFO] openai-compatible - LLM 响应: 11265ms, finish=stop | provider=qwen model=qwen3.5-plus durationMs=11265 promptTokens=10300 completionTokens=753 finishReason=stop toolCallCount=0
+2026-03-25 22:49:23 [INFO] agent-loop - LLM 响应: Froad，最新财经资讯已获取（截至3月25日22:38），为您提炼核心要点：
+
+### 🔴 重大消息
+1. **中东局势**：伊朗外交部称未与美国谈判，将继续自卫。地缘风险仍存，关注油价及避险资产波动。
+2. **原油库存**：美国上周原油库存激增693万桶（远超预期47.7万桶），短期油价或承压。
+
+### 🟡 市场动态
+1. **A股反弹**：地缘风险预期改善，**上证指数重返3900点**，深证成指站上13800点。近两日上证+3.11%、科创综指+5.06%、创业板指+2.53%。机构共识：**高配中国资产**。
+2. **国家创投基金**：京津冀基金总规模**500亿元**落地 | finishReason=stop toolCallCount=0 promptTokens=10300 completionTokens=753
+2026-03-25 22:49:23 [INFO] agent-loop - 发送最终回复 | chatId=oc_272aa140fde4a576cceab919c9fb12c2 replyLen=857
+2026-03-25 22:49:24 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 totalMessages=10
+2026-03-25 22:51:27 [INFO] main - 收到关闭信号 | signal=SIGINT
+2026-03-25 23:44:37 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-25 23:44:37 [INFO] config - 加载配置文件 | path=E:\VSCode_space\froadclaw\app\configs\config.yaml
+2026-03-25 23:44:38 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=E:\VSCode_space\froadclaw\app\data\froadclaw.db
+2026-03-25 23:44:38 [INFO] llm-registry - 注册 LLM Provider | id=qwen
+2026-03-25 23:44:38 [INFO] main - LLM Provider 注册成功，可用模型: qwen3.5-plus, qwen3.5-flash | id=qwen models=["qwen3.5-plus","qwen3.5-flash"]
+2026-03-25 23:44:38 [INFO] scheduler-store - scheduled_task 表已就绪
+2026-03-25 23:44:38 [INFO] channel-registry - 注册渠道 | id=feishu
+2026-03-25 23:44:38 [INFO] builtin-tools - 内置工具创建完成 | count=5 names=["schedule_reminder","list_reminders","cancel_reminder","web_search","finance_news"]
+2026-03-25 23:44:38 [INFO] tool-registry - 注册工具 | name=schedule_reminder
+2026-03-25 23:44:38 [INFO] tool-registry - 注册工具 | name=list_reminders
+2026-03-25 23:44:38 [INFO] tool-registry - 注册工具 | name=cancel_reminder
+2026-03-25 23:44:38 [INFO] tool-registry - 注册工具 | name=web_search
+2026-03-25 23:44:38 [INFO] tool-registry - 注册工具 | name=finance_news
+2026-03-25 23:44:38 [INFO] scheduler - agent 触发回调已注册
+2026-03-25 23:44:38 [INFO] main - HTTP 服务已启动 | port=3000
+2026-03-25 23:44:38 [INFO] channel-registry - 启动渠道 | id=feishu
+2026-03-25 23:44:38 [INFO] feishu - 启动飞书 WebSocket 长连接
+2026-03-25 23:44:38 [INFO] feishu - 获取 bot 信息成功 | botOpenId=ou_a3b753eb9b5d323ebb5325b9c7349580
+2026-03-25 23:44:38 [INFO] feishu - 飞书 WebSocket 已连接
+2026-03-25 23:44:38 [INFO] scheduler - 调度引擎启动，已加载 0 个任务 | total=0 registered=0 expired=0
+2026-03-25 23:44:38 [INFO] main - FroadClaw-Agent 已就绪
+2026-03-25 23:44:48 [INFO] router - 收到消息: 财经新闻 | messageId=om_x100b5374606720a4c1151e8568a0631 senderId=ou_65e2068ef6b4337724869522665ca716 chatId=oc_272aa140fde4a576cceab919c9fb12c2 isGroup=false
+2026-03-25 23:44:48 [INFO] agent-loop - 开始处理: 财经新闻 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 turn=23 historyLen=10 sender=ou_65e2068ef6b4337724869522665ca716
+2026-03-25 23:44:48 [INFO] agent-loop - 模型路由 [work] | provider=qwen model=qwen3.5-plus scene=work
+2026-03-25 23:44:48 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 13 条消息 | iteration=1 totalMessages=11 sentMessages=13 hasSummary=true profileCount=6
+2026-03-25 23:44:50 [INFO] openai-compatible - LLM 响应: 2242ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=2242 promptTokens=10841 completionTokens=61 finishReason=tool_calls toolCallCount=1
+2026-03-25 23:44:50 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=10841 completionTokens=61
+2026-03-25 23:44:50 [INFO] agent-loop - 执行工具: finance_news({"count": 15, "importance": "全部"}) | tool=finance_news callId=call_5d63117df0c440ab9cfb133e
+2026-03-25 23:44:51 [INFO] tool-finance-news - 执行财经资讯获取 | rawCount=15 minImportance=low sourceCount=3
+2026-03-25 23:44:51 [INFO] news-cls - 拉取财联社电报 | count=25
+2026-03-25 23:44:51 [INFO] news-dfcf - 拉取东方财富资讯 | count=25 pages=3
+2026-03-25 23:44:51 [INFO] news-sina - 拉取新浪财经7x24资讯 | count=25 pageSize=25
+2026-03-25 23:44:52 [INFO] news-sina - 新浪资讯拉取完成 | fetched=24 rawTotal=25 afterFilter=24
+2026-03-25 23:44:52 [INFO] news-cls - 财联社电报拉取完成 | fetched=25
+2026-03-25 23:44:53 [INFO] news-dfcf - 东方财富标题去重: 去除 1 条同标题重复 | before=30 after=29 dropped=1
+2026-03-25 23:44:53 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=25
+2026-03-25 23:44:53 [INFO] tool-finance-news - 多渠道汇聚 74 条原始资讯 | totalRaw=74 sources=["cls","dfcf","sina"]
+2026-03-25 23:44:53 [INFO] news-store - 资讯入库: 74 条, 新增 53 条 | total=74 inserted=53
+2026-03-25 23:44:53 [INFO] tool-finance-news - 新入库 53 条 | inserted=53
+2026-03-25 23:44:53 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen3.5-flash
+2026-03-25 23:46:18 [INFO] openai-compatible - LLM 响应: 85133ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=85133 promptTokens=5204 completionTokens=9655 finishReason=stop toolCallCount=0
+2026-03-25 23:46:18 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=5204 completionTokens=9655
+2026-03-25 23:46:18 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 3 条 | count=3 model=qwen3.5-flash
+2026-03-25 23:46:21 [ERROR] tool-executor - 工具执行失败 | err={"type":"Error","message":"工具 finance_news 执行超时","stack":"Error: 工具 finance_news 执行超时\n    at Timeout._onTimeout (file:///E:/VSCode_space/froadclaw/app/dist/index.js:646:45)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"} tool=finance_news
+2026-03-25 23:46:21 [INFO] agent-loop - 工具结果: 工具执行失败: 工具 finance_news 执行超时 | tool=finance_news isError=true durationMs=90005 rawLength=0
+2026-03-25 23:46:21 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 15 条消息 | iteration=2 totalMessages=13 sentMessages=15 hasSummary=true profileCount=6
+2026-03-25 23:46:24 [INFO] openai-compatible - LLM 响应: 2855ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=2855 promptTokens=10908 completionTokens=95 finishReason=tool_calls toolCallCount=1
+2026-03-25 23:46:24 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=10908 completionTokens=95
+2026-03-25 23:46:24 [INFO] agent-loop - 执行工具: web_search({"query": "2026年3月25日 最新财经新闻 股市 A股 港股 ETF"}) | tool=web_search callId=call_363000a6242049129f1fc71f
+2026-03-25 23:46:24 [INFO] tool-web-search - 执行联网搜索 | query=2026年3月25日 最新财经新闻 股市 A股 港股 ETF
+2026-03-25 23:46:25 [INFO] tool-web-search - 搜索返回 6 条结果 | query=2026年3月25日 最新财经新闻 股市 A股 港股 ETF resultCount=6
+2026-03-25 23:46:25 [INFO] tool-web-search - 搜索结果组装完成 | query=2026年3月25日 最新财经新闻 股市 A股 港股 ETF outputLen=7361
+2026-03-25 23:46:25 [INFO] agent-loop - 工具结果: 搜索关键词: 2026年3月25日 最新财经新闻 股市 A股 港股 ETF
+搜索结果（共 6 条）:
+
+[1] 2026 年_百度百科
+    来源: https://baike.baidu.com/item/2026%E5%B9%B4/9536516
+    摘要: 2026年，公历平年，共365天，农历丙午年（马年），无闰月，共354天。联合国决议本年为“可持续发展志愿者国际年”。1月1日起， | tool=web_search isError=false durationMs=942 rawLength=7361
+2026-03-25 23:46:25 [INFO] agent-loop - LLM 调用 (第 3 轮), 发送 17 条消息 | iteration=3 totalMessages=15 sentMessages=17 hasSummary=true profileCount=6
+2026-03-25 23:46:43 [INFO] openai-compatible - LLM 响应: 18285ms, finish=stop | provider=qwen model=qwen3.5-plus durationMs=18285 promptTokens=15648 completionTokens=1261 finishReason=stop toolCallCount=0
+2026-03-25 23:46:43 [INFO] agent-loop - LLM 响应: Froad，抱歉，当前财经资讯接口出现网络波动，实时数据获取延迟。
+
+基于上一轮成功获取的**3月25日**最新重磅资讯，为您回顾核心要点（这是目前最新的有效数据）：
+
+### 🔴 核心市场动态
+1. **A股强势反弹**：
+   - **上证指数**重返**3900点**，深证成指站上13800点。
+   - 近两日累计涨幅：上证+3.11%，科创综指+5.06%，创业板指+2.53%。
+   - 逻辑：地缘风险预期改善，机构共识“**高配中国资产**”。
+
+2. **中东局势与原油**：
+   - **伊朗**：外交部称未与美国谈判，将继续自卫（地缘风险仍存）。
+   - **原油**： | finishReason=stop toolCallCount=0 promptTokens=15648 completionTokens=1261
+2026-03-25 23:46:43 [INFO] agent-loop - 发送最终回复 | chatId=oc_272aa140fde4a576cceab919c9fb12c2 replyLen=768
+2026-03-25 23:46:44 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 totalMessages=16
+2026-03-25 23:46:44 [INFO] agent-loop - 未摘要消息达到阈值，触发异步压缩 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 unsummarizedCount=16 threshold=16
+2026-03-25 23:46:44 [INFO] memory-compressor - 开始异步摘要压缩，压缩 10 条消息 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 toCompress=10 keep=6 existingSummaryLen=781
+2026-03-25 23:46:56 [INFO] openai-compatible - LLM 响应: 37737ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=37737 promptTokens=788 completionTokens=3695 finishReason=stop toolCallCount=0
+2026-03-25 23:46:56 [INFO] news-llm-filter - LLM 筛选完成: 解析 3/3 条 | parsed=3 total=3 promptTokens=788 completionTokens=3695
+2026-03-25 23:46:56 [INFO] tool-finance-news - 输出 15 条 | kept=35 filtered=15
+2026-03-25 23:46:56 [INFO] openai-compatible - LLM 响应: 11436ms, finish=stop | provider=qwen model=qwen-plus durationMs=11436 promptTokens=1396 completionTokens=489 finishReason=stop toolCallCount=0
+2026-03-25 23:46:56 [INFO] memory-compressor - 摘要压缩完成 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 summaryLen=702 compressedCount=10
+2026-03-25 23:46:56 [INFO] agent-loop - 内存消息裁剪 | keepCount=6 before=16 after=6
+2026-03-25 23:46:56 [INFO] memory-extractor - 画像抽取冷却中，距下次还剩 48 分钟 | userId=ou_65e2068ef6b4337724869522665ca716 lastTime=2026-03-25T14:34:34Z remainMin=48
+2026-03-26 00:06:19 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-26 00:06:19 [INFO] config - 加载配置文件 | path=E:\VSCode_space\froadclaw\app\configs\config.yaml
+2026-03-26 00:06:19 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=E:\VSCode_space\froadclaw\app\data\froadclaw.db
+2026-03-26 00:06:26 [INFO] main - 收到关闭信号 | signal=SIGINT
+2026-03-26 00:06:31 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-26 00:06:31 [INFO] config - 加载配置文件 | path=E:\VSCode_space\froadclaw\app\configs\config.yaml
+2026-03-26 00:06:31 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=E:\VSCode_space\froadclaw\app\data\froadclaw.db
+2026-03-26 00:06:31 [INFO] llm-registry - 注册 LLM Provider | id=qwen
+2026-03-26 00:06:31 [INFO] main - LLM Provider 注册成功，可用模型: qwen3.5-plus, qwen3.5-flash | id=qwen models=["qwen3.5-plus","qwen3.5-flash"]
+2026-03-26 00:06:31 [INFO] scheduler-store - scheduled_task 表已就绪
+2026-03-26 00:06:31 [INFO] channel-registry - 注册渠道 | id=feishu
+2026-03-26 00:06:31 [INFO] builtin-tools - 内置工具创建完成 | count=5 names=["schedule_reminder","list_reminders","cancel_reminder","web_search","finance_news"]
+2026-03-26 00:06:31 [INFO] tool-registry - 注册工具 | name=schedule_reminder
+2026-03-26 00:06:31 [INFO] tool-registry - 注册工具 | name=list_reminders
+2026-03-26 00:06:31 [INFO] tool-registry - 注册工具 | name=cancel_reminder
+2026-03-26 00:06:31 [INFO] tool-registry - 注册工具 | name=web_search
+2026-03-26 00:06:31 [INFO] tool-registry - 注册工具 | name=finance_news
+2026-03-26 00:06:31 [INFO] scheduler - agent 触发回调已注册
+2026-03-26 00:06:31 [INFO] main - HTTP 服务已启动 | port=3000
+2026-03-26 00:06:31 [INFO] channel-registry - 启动渠道 | id=feishu
+2026-03-26 00:06:31 [INFO] feishu - 启动飞书 WebSocket 长连接
+2026-03-26 00:06:32 [INFO] feishu - 获取 bot 信息成功 | botOpenId=ou_a3b753eb9b5d323ebb5325b9c7349580
+2026-03-26 00:06:32 [INFO] feishu - 飞书 WebSocket 已连接
+2026-03-26 00:06:32 [INFO] scheduler - 调度引擎启动，已加载 0 个任务 | total=0 registered=0 expired=0
+2026-03-26 00:06:32 [INFO] main - FroadClaw-Agent 已就绪
+2026-03-26 00:06:47 [INFO] router - 收到消息: 财经新闻 | messageId=om_x100b5374cfda78b0c4a51a38502ffb7 senderId=ou_65e2068ef6b4337724869522665ca716 chatId=oc_272aa140fde4a576cceab919c9fb12c2 isGroup=false
+2026-03-26 00:06:47 [INFO] agent-loop - 开始处理: 财经新闻 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 turn=24 historyLen=6 sender=ou_65e2068ef6b4337724869522665ca716
+2026-03-26 00:06:47 [INFO] agent-loop - 模型路由 [work] | provider=qwen model=qwen3.5-plus scene=work
+2026-03-26 00:06:47 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 9 条消息 | iteration=1 totalMessages=7 sentMessages=9 hasSummary=true profileCount=6
+2026-03-26 00:06:50 [INFO] openai-compatible - LLM 响应: 2573ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=2573 promptTokens=7643 completionTokens=91 finishReason=tool_calls toolCallCount=1
+2026-03-26 00:06:50 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=7643 completionTokens=91
+2026-03-26 00:06:50 [INFO] agent-loop - 执行工具: finance_news({"count": 15, "importance": "全部"}) | tool=finance_news callId=call_ccd0cccebf024851b36b49af
+2026-03-26 00:06:50 [INFO] tool-finance-news - 执行财经资讯获取 | rawCount=15 minImportance=low sourceCount=3
+2026-03-26 00:06:50 [INFO] news-cls - 拉取财联社电报 | count=25
+2026-03-26 00:06:50 [INFO] news-dfcf - 拉取东方财富资讯 | count=25 pages=3
+2026-03-26 00:06:50 [INFO] news-sina - 拉取新浪财经7x24资讯 | count=25 pageSize=25
+2026-03-26 00:06:51 [INFO] news-sina - 新浪资讯拉取完成 | fetched=25 rawTotal=25 afterFilter=25
+2026-03-26 00:06:51 [INFO] news-cls - 财联社电报拉取完成 | fetched=25
+2026-03-26 00:06:51 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=25
+2026-03-26 00:06:51 [INFO] tool-finance-news - 多渠道汇聚 75 条原始资讯 | totalRaw=75 sources=["cls","dfcf","sina"]
+2026-03-26 00:06:51 [INFO] news-store - 资讯入库: 75 条, 新增 34 条 | total=75 inserted=34
+2026-03-26 00:06:51 [INFO] tool-finance-news - 新入库 34 条 | inserted=34
+2026-03-26 00:06:51 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 34 条 | count=34 model=qwen3.5-flash
+2026-03-26 00:08:06 [INFO] openai-compatible - LLM 响应: 74461ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=74461 promptTokens=3574 completionTokens=7569 finishReason=stop toolCallCount=0
+2026-03-26 00:08:06 [INFO] news-llm-filter - LLM 筛选完成: 解析 34/34 条 | parsed=34 total=34 promptTokens=3574 completionTokens=7569
+2026-03-26 00:08:06 [INFO] tool-finance-news - 输出 15 条 | kept=35 filtered=15
+2026-03-26 00:08:06 [INFO] agent-loop - 工具结果: 最新财经资讯（共 15 条）:
+
+🟡 [1] 03/25 23:30 (快讯) [国际, 埃克森美孚, 页岩气]
+   埃克森美孚总裁阿曼：能源市场正处于动荡的早期阶段。埃克森美孚正在最大限度地提高产量以帮助市场，目标是将美国页岩气的采收率提高一倍。
+
+🟡 [2] 03/25 23:30 低价内卷的外卖大战 是时候停止了 [时代周报]
+   1分钱奶茶、5元快餐、新用户零元购，外卖补贴大战持续 | tool=finance_news isError=false durationMs=75270 rawLength=2474
+2026-03-26 00:08:06 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 11 条消息 | iteration=2 totalMessages=9 sentMessages=11 hasSummary=true profileCount=6
+2026-03-26 00:08:18 [INFO] openai-compatible - LLM 响应: 11846ms, finish=stop | provider=qwen model=qwen3.5-plus durationMs=11846 promptTokens=9243 completionTokens=777 finishReason=stop toolCallCount=0
+2026-03-26 00:08:18 [INFO] agent-loop - LLM 响应: Froad，最新财经资讯已获取（截至3月25日23:53），为您梳理核心要点：
+
+### 🔴 地缘与宏观（影响市场情绪）
+1. **中东局势升级**：
+   - **伊朗**：拒绝与美谈判，巴方称"今晚回复但未收到官方确认"。
+   - **俄罗斯**：扎哈罗娃称美谈判呼吁或为"备战争取时间"，警告核灾难风险。
+   - **欧洲央行**：拉加德警告能源供应受阻推高通胀风险，欧元区前景不确定性增加。
+   - **西班牙**：首相重申反战立场，拒绝美军基地参与对伊行动。
+
+2. **美国经济预期**：
+   - **保险业高管**：超半数预测未来三年内美国将出现经济衰退，地缘政治+经济放缓是 | finishReason=stop toolCallCount=0 promptTokens=9243 completionTokens=777
+2026-03-26 00:08:18 [INFO] agent-loop - 发送最终回复 | chatId=oc_272aa140fde4a576cceab919c9fb12c2 replyLen=894
+2026-03-26 00:08:18 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 totalMessages=10
+2026-03-26 00:08:59 [INFO] main - 收到关闭信号 | signal=SIGINT
+2026-03-26 00:25:50 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-26 00:25:50 [INFO] config - 加载配置文件 | path=E:\VSCode_space\froadclaw\app\configs\config.yaml
+2026-03-26 00:25:50 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=E:\VSCode_space\froadclaw\app\data\froadclaw.db
+2026-03-26 00:25:50 [INFO] llm-registry - 注册 LLM Provider | id=qwen
+2026-03-26 00:25:50 [INFO] main - LLM Provider 注册成功，可用模型: qwen3.5-plus, qwen3.5-flash | id=qwen models=["qwen3.5-plus","qwen3.5-flash"]
+2026-03-26 00:25:50 [INFO] scheduler-store - scheduled_task 表已就绪
+2026-03-26 00:25:50 [INFO] channel-registry - 注册渠道 | id=feishu
+2026-03-26 00:25:50 [INFO] builtin-tools - 内置工具创建完成 | count=5 names=["schedule_reminder","list_reminders","cancel_reminder","web_search","finance_news"]
+2026-03-26 00:25:50 [INFO] tool-registry - 注册工具 | name=schedule_reminder
+2026-03-26 00:25:50 [INFO] tool-registry - 注册工具 | name=list_reminders
+2026-03-26 00:25:50 [INFO] tool-registry - 注册工具 | name=cancel_reminder
+2026-03-26 00:25:50 [INFO] tool-registry - 注册工具 | name=web_search
+2026-03-26 00:25:50 [INFO] tool-registry - 注册工具 | name=finance_news
+2026-03-26 00:25:50 [INFO] scheduler - agent 触发回调已注册
+2026-03-26 00:25:50 [INFO] main - HTTP 服务已启动 | port=3000
+2026-03-26 00:25:50 [INFO] channel-registry - 启动渠道 | id=feishu
+2026-03-26 00:25:50 [INFO] feishu - 启动飞书 WebSocket 长连接
+2026-03-26 00:25:50 [INFO] feishu - 获取 bot 信息成功 | botOpenId=ou_a3b753eb9b5d323ebb5325b9c7349580
+2026-03-26 00:25:50 [INFO] feishu - 飞书 WebSocket 已连接
+2026-03-26 00:25:50 [INFO] scheduler - 调度引擎启动，已加载 0 个任务 | total=0 registered=0 expired=0
+2026-03-26 00:25:50 [INFO] main - FroadClaw-Agent 已就绪
+2026-03-26 00:26:03 [INFO] router - 收到消息: 获取财经资讯 | messageId=om_x100b5374879b60a8b36a2f0e091a9bf senderId=ou_65e2068ef6b4337724869522665ca716 chatId=oc_272aa140fde4a576cceab919c9fb12c2 isGroup=false
+2026-03-26 00:26:03 [INFO] agent-loop - 开始处理: 获取财经资讯 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 turn=25 historyLen=10 sender=ou_65e2068ef6b4337724869522665ca716
+2026-03-26 00:26:03 [INFO] agent-loop - 模型路由 [work] | provider=qwen model=qwen3.5-plus scene=work
+2026-03-26 00:26:03 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 13 条消息 | iteration=1 totalMessages=11 sentMessages=13 hasSummary=true profileCount=6
+2026-03-26 00:26:06 [INFO] openai-compatible - LLM 响应: 2554ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=2554 promptTokens=9808 completionTokens=77 finishReason=tool_calls toolCallCount=1
+2026-03-26 00:26:06 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=9808 completionTokens=77
+2026-03-26 00:26:06 [INFO] agent-loop - 执行工具: finance_news({"count": 15, "importance": "全部"}) | tool=finance_news callId=call_15a2795f722647e5b5fb2eb4
+2026-03-26 00:26:06 [INFO] tool-finance-news - 执行财经资讯获取 | rawCount=15 minImportance=low sourceCount=3
+2026-03-26 00:26:06 [INFO] news-cls - 拉取财联社电报 | count=25
+2026-03-26 00:26:06 [INFO] news-dfcf - 拉取东方财富资讯 | count=25 pages=3
+2026-03-26 00:26:06 [INFO] news-sina - 拉取新浪财经7x24资讯 | count=25 pageSize=25
+2026-03-26 00:26:07 [INFO] news-sina - 新浪资讯拉取完成 | fetched=25 rawTotal=25 afterFilter=25
+2026-03-26 00:26:07 [INFO] news-cls - 财联社电报拉取完成 | fetched=25
+2026-03-26 00:26:07 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=25
+2026-03-26 00:26:07 [INFO] tool-finance-news - 多渠道汇聚 75 条原始资讯 | totalRaw=75 sources=["cls","dfcf","sina"]
+2026-03-26 00:26:07 [INFO] news-store - 资讯入库: 75 条, 新增 19 条 | total=75 inserted=19
+2026-03-26 00:26:07 [INFO] tool-finance-news - 新入库 19 条 | inserted=19
+2026-03-26 00:26:07 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 19 条 | count=19 model=qwen3.5-flash
+2026-03-26 00:26:09 [INFO] openai-compatible - LLM 响应: 2576ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=2576 promptTokens=2200 completionTokens=255 finishReason=stop toolCallCount=0
+2026-03-26 00:26:09 [INFO] news-llm-filter - LLM 筛选完成: 解析 19/19 条 | parsed=19 total=19 promptTokens=2200 completionTokens=255
+2026-03-26 00:26:09 [INFO] tool-finance-news - 输出 15 条 | kept=35 filtered=15
+2026-03-26 00:26:09 [INFO] agent-loop - 工具结果: 最新财经资讯（共 15 条）:
+
+🟡 [1] 03/25 23:44 报道：SpaceX计划从美国IPO融资至多750亿美元 [公司, 国际, 太空]
+   据知情人士透漏，马斯克旗下太空探索公司SpaceX正在考虑在首次公开募股（IPO）中设定约750亿美元的筹款目标。该公司已与潜在投资者讨论了筹资超过700亿美元的前景，无论哪个数字都远高于此前报道的500亿美元目标。SpaceX可能会在IP | tool=finance_news isError=false durationMs=3289 rawLength=2240
+2026-03-26 00:26:09 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 15 条消息 | iteration=2 totalMessages=13 sentMessages=15 hasSummary=true profileCount=6
+2026-03-26 00:26:18 [INFO] openai-compatible - LLM 响应: 8806ms, finish=stop | provider=qwen model=qwen3.5-plus durationMs=8806 promptTokens=11249 completionTokens=740 finishReason=stop toolCallCount=0
+2026-03-26 00:26:18 [INFO] agent-loop - LLM 响应: Froad，最新财经资讯已更新（截至3月26日00:00），核心要点梳理如下：
+
+### 🔴 地缘风险升级（关键变量）
+1. **伊朗强硬表态**：
+   - 若本土或岛屿遭袭，**可能封锁曼德海峡**（全球航运咽喉）。
+   - 惠誉警告：**霍尔木兹海峡关闭超1个月**将重创全球化工产量，亚洲生产商受冲击最严重。
+   - 英国企业燃气账单**最高涨80%**，能源成本激增或推高全球通胀。
+
+2. **欧洲分化**：
+   - 西班牙拒绝美军基地参与对伊行动，欧洲内部对中东战争立场出现裂痕。
+
+### 🟡 市场与产业
+1. **中国资产受青睐**：
+   - 证券日报："**买中国就是 | finishReason=stop toolCallCount=0 promptTokens=11249 completionTokens=740
+2026-03-26 00:26:18 [INFO] agent-loop - 发送最终回复 | chatId=oc_272aa140fde4a576cceab919c9fb12c2 replyLen=990
+2026-03-26 00:26:19 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_272aa140fde4a576cceab919c9fb12c2:ou_65e2068ef6b4337724869522665ca716 totalMessages=14
+2026-03-26 00:26:49 [INFO] main - 收到关闭信号 | signal=SIGINT

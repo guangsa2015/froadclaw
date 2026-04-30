@@ -1,0 +1,508 @@
+2026-03-30 00:27:17 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-30 00:27:17 [INFO] config - 加载配置文件 | path=/app/configs/config.yaml
+2026-03-30 00:27:17 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=/app/data/froadclaw.db
+2026-03-30 00:27:17 [INFO] llm-registry - 注册 LLM Provider | id=qwen
+2026-03-30 00:27:17 [INFO] main - LLM Provider 注册成功，可用模型: qwen3.5-plus, qwen3.5-flash | id=qwen models=["qwen3.5-plus","qwen3.5-flash"]
+2026-03-30 00:27:17 [INFO] scheduler-store - scheduled_task 表已就绪
+2026-03-30 00:27:17 [INFO] channel-registry - 注册渠道 | id=feishu
+2026-03-30 00:27:17 [INFO] builtin-tools - 内置工具创建完成 | count=5 names=["schedule_reminder","list_reminders","cancel_reminder","web_search","finance_news"]
+2026-03-30 00:27:17 [INFO] tool-registry - 注册工具 | name=schedule_reminder
+2026-03-30 00:27:17 [INFO] tool-registry - 注册工具 | name=list_reminders
+2026-03-30 00:27:17 [INFO] tool-registry - 注册工具 | name=cancel_reminder
+2026-03-30 00:27:17 [INFO] tool-registry - 注册工具 | name=web_search
+2026-03-30 00:27:17 [INFO] tool-registry - 注册工具 | name=finance_news
+2026-03-30 00:27:17 [INFO] news-refresh - 资讯定时刷新已暂停（DB配置 enabled=0）
+2026-03-30 00:27:17 [INFO] tool-registry - 工具启动钩子已执行 | name=finance_news
+2026-03-30 00:27:17 [INFO] scheduler - agent 触发回调已注册
+2026-03-30 00:27:18 [INFO] main - HTTP 服务已启动 | port=3000
+2026-03-30 00:27:18 [INFO] channel-registry - 启动渠道 | id=feishu
+2026-03-30 00:27:18 [INFO] feishu - 启动飞书 WebSocket 长连接
+2026-03-30 00:27:18 [INFO] feishu - 获取 bot 信息成功 | botOpenId=ou_daddce1ef6963b2e26c4f4b59932eb8f
+2026-03-30 00:27:18 [INFO] feishu - 飞书 WebSocket 已连接
+2026-03-30 00:27:18 [INFO] scheduler - 调度引擎启动，已加载 0 个任务 | total=0 registered=0 expired=0
+2026-03-30 00:27:18 [INFO] main - FroadClaw-Agent 已就绪
+2026-03-30 00:28:35 [INFO] router - 收到消息: 启动资讯获取 | messageId=om_x100b53a875e664a0b3c2b143138758f senderId=ou_602a22a5bc2b74f31f05d727e9e25c65 chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 isGroup=false
+2026-03-30 00:28:35 [INFO] session-manager - 创建新会话 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65
+2026-03-30 00:28:35 [INFO] agent-loop - 开始处理: 启动资讯获取 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 turn=1 historyLen=0 sender=ou_602a22a5bc2b74f31f05d727e9e25c65
+2026-03-30 00:28:35 [INFO] agent-loop - 模型路由 [life] | provider=qwen model=qwen3.5-flash scene=life
+2026-03-30 00:28:35 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 2 条消息 | iteration=1 totalMessages=1 sentMessages=2 hasSummary=false profileCount=7
+2026-03-30 00:28:38 [INFO] openai-compatible - LLM 响应: 3011ms, finish=tool_calls | provider=qwen model=qwen3.5-flash durationMs=3011 promptTokens=1964 completionTokens=170 finishReason=tool_calls toolCallCount=1
+2026-03-30 00:28:38 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=1964 completionTokens=170
+2026-03-30 00:28:38 [INFO] agent-loop - 执行工具: finance_news({"action": "resume"}) | tool=finance_news callId=call_88c1098394c749459d0d48ad
+2026-03-30 00:28:39 [INFO] news-refresh - 资讯定时刷新已恢复 | cron=0 * * * *
+2026-03-30 00:28:39 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 00:28:39 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 00:28:39 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 00:28:39 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 00:28:39 [INFO] agent-loop - 工具结果: ✅ 资讯后台刷新已恢复，当前间隔: 0 * * * * | tool=finance_news isError=false durationMs=17 rawLength=27
+2026-03-30 00:28:39 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 4 条消息 | iteration=2 totalMessages=3 sentMessages=4 hasSummary=false profileCount=7
+2026-03-30 00:28:39 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=7 rawTotal=30
+2026-03-30 00:28:39 [INFO] news-jin10 - 金十数据拉取完成（加红18 + 经济数据0） | fetched=17 rawTotal=105 flash=18 econ=0
+2026-03-30 00:28:39 [INFO] openai-compatible - LLM 响应: 474ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=474 promptTokens=2025 completionTokens=16 finishReason=stop toolCallCount=0
+2026-03-30 00:28:39 [INFO] agent-loop - LLM 响应: 资讯获取已恢复，当前设置为每分钟自动刷新一次。 | finishReason=stop toolCallCount=0 promptTokens=2025 completionTokens=16
+2026-03-30 00:28:39 [INFO] agent-loop - 发送最终回复 | chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 replyLen=23
+2026-03-30 00:28:39 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 00:28:39 [INFO] news-refresh - 后台刷新: 汇聚 54 条 | totalRaw=54
+2026-03-30 00:28:40 [INFO] news-store - 资讯入库: 54 条, 新增 54 条 | total=54 inserted=54
+2026-03-30 00:28:40 [INFO] news-refresh - pending 达到阈值 54，触发 LLM 筛选 | pendingCount=54
+2026-03-30 00:28:40 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen3.5-flash
+2026-03-30 00:28:40 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 totalMessages=4
+2026-03-30 00:28:44 [INFO] openai-compatible - LLM 响应: 4909ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=4909 promptTokens=5981 completionTokens=615 finishReason=stop toolCallCount=0
+2026-03-30 00:28:44 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=5981 completionTokens=615
+2026-03-30 00:28:44 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 4 条 | count=4 model=qwen3.5-flash
+2026-03-30 00:28:45 [INFO] openai-compatible - LLM 响应: 906ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=906 promptTokens=943 completionTokens=61 finishReason=stop toolCallCount=0
+2026-03-30 00:28:45 [INFO] news-llm-filter - LLM 筛选完成: 解析 4/4 条 | parsed=4 total=4 promptTokens=943 completionTokens=61
+2026-03-30 00:28:45 [INFO] news-refresh - 后台刷新完成: 新增54, pending54, 筛选54, 清理228, 耗时6521ms | inserted=54 pendingCount=54 filtered=54 cleaned=228 elapsedMs=6521
+2026-03-30 00:29:15 [INFO] router - 收到消息: 财经资讯 | messageId=om_x100b53a8736ba0b8b2812461ee834e2 senderId=ou_602a22a5bc2b74f31f05d727e9e25c65 chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 isGroup=false
+2026-03-30 00:29:15 [INFO] agent-loop - 开始处理: 财经资讯 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 turn=6 historyLen=26 sender=ou_602a22a5bc2b74f31f05d727e9e25c65
+2026-03-30 00:29:15 [INFO] agent-loop - 模型路由 [work] | provider=qwen model=qwen3.5-plus scene=work
+2026-03-30 00:29:15 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 28 条消息 | iteration=1 totalMessages=27 sentMessages=28 hasSummary=false profileCount=7
+2026-03-30 00:29:17 [INFO] openai-compatible - LLM 响应: 1745ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=1745 promptTokens=9433 completionTokens=62 finishReason=tool_calls toolCallCount=1
+2026-03-30 00:29:17 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=9433 completionTokens=62
+2026-03-30 00:29:17 [INFO] agent-loop - 执行工具: finance_news({"action": "query", "count": 15}) | tool=finance_news callId=call_5c98a7aa072c4d198c106da2
+2026-03-30 00:29:17 [INFO] tool-finance-news - 执行资讯查询 | rawCount=15 minImportance=low action=query
+2026-03-30 00:29:17 [INFO] tool-finance-news - 查询输出 15 条 | kept=30 filtered=15
+2026-03-30 00:29:17 [INFO] agent-loop - 工具结果: 最新财经资讯（共 15 条）:
+
+🔴 [1] 03/30 05:35 金十数据整理：中东局势跟踪（3月30日）
+   美以伊冲突：
+①伊朗
+1. 伊朗洪达卜重水反应堆停运。
+2. 伊朗称已击落138架美以无人机。
+3. 伊朗军方称将打击美以军政人员住所。
+4. 伊朗媒体：一架MQ-9“死神”无人机被击落。
+5. 伊朗军方称袭击约旦的美军装备仓库与人员营地。
+6. 伊朗高级将领：美军被迫撤离伊朗边 | tool=finance_news isError=false durationMs=7 rawLength=2073
+2026-03-30 00:29:17 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 30 条消息 | iteration=2 totalMessages=29 sentMessages=30 hasSummary=false profileCount=7
+2026-03-30 00:29:26 [INFO] openai-compatible - LLM 响应: 9257ms, finish=stop | provider=qwen model=qwen3.5-plus durationMs=9257 promptTokens=10965 completionTokens=851 finishReason=stop toolCallCount=0
+2026-03-30 00:29:26 [INFO] agent-loop - LLM 响应: **📰 最新财经简报（2026-03-30 早间）**
+
+**⚠️ 核心焦点：中东局势急剧升级，全球市场避险情绪高涨**
+
+**1. 地缘政治与能源**
+*   **局势恶化**：伊朗称已击落138架美以无人机，并警告美方勿采取地面行动；特朗普表态“不排除占领伊朗石油枢纽哈尔克岛”，欲“夺取伊朗石油”。
+*   **油价飙升**：美油高开至 **102.57美元/桶**，布油 **107.15美元/桶**（涨幅约1%）。G7今日将讨论释放战略石油储备。
+*   **供应冲击**：伊朗袭击中东铝生产设施，**LME铝开盘大涨超5%**。
+
+**2. 全球股市（避险抛售）**
+*   **亚洲重 | finishReason=stop toolCallCount=0 promptTokens=10965 completionTokens=851
+2026-03-30 00:29:26 [INFO] agent-loop - 发送最终回复 | chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 replyLen=988
+2026-03-30 00:29:27 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 totalMessages=30
+2026-03-30 00:29:27 [INFO] agent-loop - 未摘要消息达到阈值，触发异步压缩 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 unsummarizedCount=17 threshold=16
+2026-03-30 00:29:27 [INFO] memory-compressor - 开始异步摘要压缩，压缩 24 条消息 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 toCompress=24 keep=6 existingSummaryLen=0
+2026-03-30 00:29:40 [INFO] openai-compatible - LLM 响应: 12727ms, finish=stop | provider=qwen model=qwen-plus durationMs=12727 promptTokens=1335 completionTokens=560 finishReason=stop toolCallCount=0
+2026-03-30 00:29:40 [INFO] memory-compressor - 摘要压缩完成 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 summaryLen=795 compressedCount=24
+2026-03-30 00:29:40 [INFO] agent-loop - 内存消息裁剪 | keepCount=6 before=30 after=4
+2026-03-30 00:29:40 [INFO] memory-extractor - 开始抽取用户画像 (已有 7 条) | userId=ou_602a22a5bc2b74f31f05d727e9e25c65 sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 summaryLen=795 existingCount=7
+2026-03-30 00:29:44 [INFO] openai-compatible - LLM 响应: 4234ms, finish=stop | provider=qwen model=qwen-plus durationMs=4234 promptTokens=1091 completionTokens=171 finishReason=stop toolCallCount=0
+2026-03-30 00:29:44 [INFO] memory-extractor - 用户画像更新: 7 条 (新增 0, 更新 0, 淘汰 0) | userId=ou_602a22a5bc2b74f31f05d727e9e25c65 total=7 added=0 updated=0 removed=0 before=7
+2026-03-30 01:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 01:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 01:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 01:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 01:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=7 rawTotal=30
+2026-03-30 01:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红16 + 经济数据0） | fetched=16 rawTotal=105 flash=16 econ=0
+2026-03-30 01:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 01:00:00 [INFO] news-refresh - 后台刷新: 汇聚 53 条 | totalRaw=53
+2026-03-30 01:00:00 [INFO] news-store - 资讯入库: 53 条, 新增 6 条 | total=53 inserted=6
+2026-03-30 01:00:00 [INFO] news-refresh - 后台刷新完成: 新增6, pending6, 筛选0, 清理0, 耗时635ms | inserted=6 pendingCount=6 filtered=0 cleaned=0 elapsedMs=635
+2026-03-30 02:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 02:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 02:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 02:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 02:00:00 [ERROR] news-cls - 财联社请求异常 | err={"type":"TypeError","message":"fetch failed: ","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:14976:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.fetch (file:///app/dist/index.js:2944:22)\n    at async file:///app/dist/index.js:3532:20\n    at async Promise.all (index 0)\n    at async NewsRefreshService.refresh (file:///app/dist/index.js:3529:28)\ncaused by: AggregateError [ETIMEDOUT]: \n    at internalConnectMultiple (node:net:1134:18)\n    at internalConnectMultiple (node:net:1210:5)\n    at Timeout.internalConnectMultipleTimeout (node:net:1742:5)\n    at listOnTimeout (node:internal/timers:587:11)\n    at process.processTimers (node:internal/timers:521:7)"}
+2026-03-30 02:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红20 + 经济数据0） | fetched=19 rawTotal=104 flash=20 econ=0
+2026-03-30 02:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 02:00:00 [INFO] news-refresh - 后台刷新: 汇聚 49 条 | totalRaw=49
+2026-03-30 02:00:00 [INFO] news-store - 资讯入库: 49 条, 新增 20 条 | total=49 inserted=20
+2026-03-30 02:00:00 [INFO] news-refresh - 后台刷新完成: 新增20, pending26, 筛选0, 清理0, 耗时579ms | inserted=20 pendingCount=26 filtered=0 cleaned=0 elapsedMs=579
+2026-03-30 02:15:49 [INFO] main - 收到关闭信号 | signal=SIGTERM
+2026-03-30 02:19:46 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-30 02:19:46 [INFO] config - 加载配置文件 | path=/app/configs/config.yaml
+2026-03-30 02:19:46 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=/app/data/froadclaw.db
+2026-03-30 02:19:46 [INFO] llm-registry - 注册 LLM Provider | id=qwen
+2026-03-30 02:19:46 [INFO] main - LLM Provider 注册成功，可用模型: qwen3.5-plus, qwen3.5-flash | id=qwen models=["qwen3.5-plus","qwen3.5-flash"]
+2026-03-30 02:19:46 [INFO] scheduler-store - scheduled_task 表已就绪
+2026-03-30 02:19:46 [INFO] channel-registry - 注册渠道 | id=feishu
+2026-03-30 02:19:46 [INFO] builtin-tools - 内置工具创建完成 | count=5 names=["schedule_reminder","list_reminders","cancel_reminder","web_search","finance_news"]
+2026-03-30 02:19:46 [INFO] tool-registry - 注册工具 | name=schedule_reminder
+2026-03-30 02:19:46 [INFO] tool-registry - 注册工具 | name=list_reminders
+2026-03-30 02:19:46 [INFO] tool-registry - 注册工具 | name=cancel_reminder
+2026-03-30 02:19:46 [INFO] tool-registry - 注册工具 | name=web_search
+2026-03-30 02:19:46 [INFO] tool-registry - 注册工具 | name=finance_news
+2026-03-30 02:19:46 [INFO] news-refresh - 资讯定时刷新已启动: 0 * * * * | cron=0 * * * *
+2026-03-30 02:19:46 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 02:19:46 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 02:19:46 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 02:19:46 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 02:19:46 [INFO] tool-registry - 工具启动钩子已执行 | name=finance_news
+2026-03-30 02:19:46 [INFO] scheduler - agent 触发回调已注册
+2026-03-30 02:19:46 [INFO] main - HTTP 服务已启动 | port=3000
+2026-03-30 02:19:46 [INFO] channel-registry - 启动渠道 | id=feishu
+2026-03-30 02:19:46 [INFO] feishu - 启动飞书 WebSocket 长连接
+2026-03-30 02:19:47 [INFO] news-jin10 - 金十数据拉取完成（加红19 + 经济数据0） | fetched=18 rawTotal=105 flash=19 econ=0
+2026-03-30 02:19:47 [INFO] feishu - 获取 bot 信息成功 | botOpenId=ou_daddce1ef6963b2e26c4f4b59932eb8f
+2026-03-30 02:19:47 [INFO] feishu - 飞书 WebSocket 已连接
+2026-03-30 02:19:47 [INFO] scheduler - 调度引擎启动，已加载 0 个任务 | total=0 registered=0 expired=0
+2026-03-30 02:19:47 [INFO] main - FroadClaw-Agent 已就绪
+2026-03-30 02:19:47 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=4 rawTotal=30
+2026-03-30 02:19:48 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 02:19:48 [INFO] news-refresh - 后台刷新: 汇聚 52 条 | totalRaw=52
+2026-03-30 02:19:48 [INFO] news-store - 资讯入库: 52 条, 新增 7 条 | total=52 inserted=7
+2026-03-30 02:19:48 [INFO] news-refresh - 后台刷新完成: 新增7, pending33, 筛选0, 清理0, 耗时1576ms | inserted=7 pendingCount=33 filtered=0 cleaned=0 elapsedMs=1576
+2026-03-30 02:44:49 [INFO] main - 收到关闭信号 | signal=SIGTERM
+2026-03-30 10:45:05 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-30 10:45:05 [INFO] config - 加载配置文件 | path=/app/configs/config.yaml
+2026-03-30 10:45:05 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=/app/data/froadclaw.db
+2026-03-30 10:45:05 [INFO] llm-registry - 注册 LLM Provider | id=qwen
+2026-03-30 10:45:05 [INFO] main - LLM Provider 注册成功，可用模型: qwen3.5-plus, qwen3.5-flash | id=qwen models=["qwen3.5-plus","qwen3.5-flash"]
+2026-03-30 10:45:05 [INFO] scheduler-store - scheduled_task 表已就绪
+2026-03-30 10:45:05 [INFO] channel-registry - 注册渠道 | id=feishu
+2026-03-30 10:45:05 [INFO] builtin-tools - 内置工具创建完成 | count=5 names=["schedule_reminder","list_reminders","cancel_reminder","web_search","finance_news"]
+2026-03-30 10:45:05 [INFO] tool-registry - 注册工具 | name=schedule_reminder
+2026-03-30 10:45:05 [INFO] tool-registry - 注册工具 | name=list_reminders
+2026-03-30 10:45:05 [INFO] tool-registry - 注册工具 | name=cancel_reminder
+2026-03-30 10:45:05 [INFO] tool-registry - 注册工具 | name=web_search
+2026-03-30 10:45:05 [INFO] tool-registry - 注册工具 | name=finance_news
+2026-03-30 10:45:05 [INFO] news-refresh - 资讯定时刷新已启动: 0 * * * * | cron=0 * * * *
+2026-03-30 10:45:05 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 10:45:05 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 10:45:05 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 10:45:05 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 10:45:05 [INFO] tool-registry - 工具启动钩子已执行 | name=finance_news
+2026-03-30 10:45:05 [INFO] scheduler - agent 触发回调已注册
+2026-03-30 10:45:05 [INFO] main - HTTP 服务已启动 | port=3000
+2026-03-30 10:45:05 [INFO] channel-registry - 启动渠道 | id=feishu
+2026-03-30 10:45:05 [INFO] feishu - 启动飞书 WebSocket 长连接
+2026-03-30 10:45:05 [INFO] feishu - 获取 bot 信息成功 | botOpenId=ou_daddce1ef6963b2e26c4f4b59932eb8f
+2026-03-30 10:45:05 [INFO] feishu - 飞书 WebSocket 已连接
+2026-03-30 10:45:05 [INFO] scheduler - 调度引擎启动，已加载 0 个任务 | total=0 registered=0 expired=0
+2026-03-30 10:45:05 [INFO] main - FroadClaw-Agent 已就绪
+2026-03-30 10:45:05 [INFO] news-jin10 - 金十数据拉取完成（加红12 + 经济数据0） | fetched=12 rawTotal=105 flash=12 econ=0
+2026-03-30 10:45:05 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=5 rawTotal=30
+2026-03-30 10:45:06 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 10:45:06 [INFO] news-refresh - 后台刷新: 汇聚 47 条 | totalRaw=47
+2026-03-30 10:45:06 [INFO] news-store - 资讯入库: 47 条, 新增 11 条 | total=47 inserted=11
+2026-03-30 10:45:06 [INFO] news-refresh - 后台刷新完成: 新增11, pending44, 筛选0, 清理0, 耗时761ms | inserted=11 pendingCount=44 filtered=0 cleaned=0 elapsedMs=761
+2026-03-30 11:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 11:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 11:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 11:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 11:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=4 rawTotal=30
+2026-03-30 11:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红10 + 经济数据0） | fetched=10 rawTotal=104 flash=10 econ=0
+2026-03-30 11:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 11:00:00 [INFO] news-refresh - 后台刷新: 汇聚 44 条 | totalRaw=44
+2026-03-30 11:00:00 [INFO] news-store - 资讯入库: 44 条, 新增 1 条 | total=44 inserted=1
+2026-03-30 11:00:00 [INFO] news-refresh - 后台刷新完成: 新增1, pending45, 筛选0, 清理0, 耗时554ms | inserted=1 pendingCount=45 filtered=0 cleaned=0 elapsedMs=554
+2026-03-30 12:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 12:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 12:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 12:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 12:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=5 rawTotal=30
+2026-03-30 12:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红14 + 经济数据0） | fetched=12 rawTotal=105 flash=14 econ=0
+2026-03-30 12:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 12:00:00 [INFO] news-refresh - 后台刷新: 汇聚 47 条 | totalRaw=47
+2026-03-30 12:00:00 [INFO] news-store - 资讯入库: 47 条, 新增 15 条 | total=47 inserted=15
+2026-03-30 12:00:00 [INFO] news-refresh - pending 达到阈值 60，触发 LLM 筛选 | pendingCount=60
+2026-03-30 12:00:00 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen3.5-flash
+2026-03-30 12:00:05 [INFO] openai-compatible - LLM 响应: 5132ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=5132 promptTokens=5881 completionTokens=598 finishReason=stop toolCallCount=0
+2026-03-30 12:00:05 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=5881 completionTokens=598
+2026-03-30 12:00:05 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 10 条 | count=10 model=qwen3.5-flash
+2026-03-30 12:00:07 [INFO] openai-compatible - LLM 响应: 1297ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=1297 promptTokens=1557 completionTokens=112 finishReason=stop toolCallCount=0
+2026-03-30 12:00:07 [INFO] news-llm-filter - LLM 筛选完成: 解析 10/10 条 | parsed=10 total=10 promptTokens=1557 completionTokens=112
+2026-03-30 12:00:07 [INFO] news-refresh - 后台刷新完成: 新增15, pending60, 筛选60, 清理0, 耗时7156ms | inserted=15 pendingCount=60 filtered=60 cleaned=0 elapsedMs=7156
+2026-03-30 13:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 13:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 13:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 13:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 13:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红8 + 经济数据0） | fetched=8 rawTotal=105 flash=8 econ=0
+2026-03-30 13:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=4 rawTotal=30
+2026-03-30 13:00:00 [ERROR] news-dfcf - 东方财富第 2 页请求异常 | err={"type":"TypeError","message":"fetch failed: ","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:14976:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async fetchPage (file:///app/dist/index.js:3021:16)\n    at async Object.fetch (file:///app/dist/index.js:3054:25)\n    at async file:///app/dist/index.js:3532:20\n    at async Promise.all (index 1)\n    at async NewsRefreshService.refresh (file:///app/dist/index.js:3529:28)\ncaused by: AggregateError [ETIMEDOUT]: \n    at internalConnectMultiple (node:net:1134:18)\n    at internalConnectMultiple (node:net:1210:5)\n    at Timeout.internalConnectMultipleTimeout (node:net:1742:5)\n    at listOnTimeout (node:internal/timers:587:11)\n    at process.processTimers (node:internal/timers:521:7)"} page=2
+2026-03-30 13:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=10
+2026-03-30 13:00:00 [INFO] news-refresh - 后台刷新: 汇聚 22 条 | totalRaw=22
+2026-03-30 13:00:00 [INFO] news-store - 资讯入库: 22 条, 新增 5 条 | total=22 inserted=5
+2026-03-30 13:00:00 [INFO] news-refresh - 后台刷新完成: 新增5, pending5, 筛选0, 清理0, 耗时460ms | inserted=5 pendingCount=5 filtered=0 cleaned=0 elapsedMs=460
+2026-03-30 14:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 14:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 14:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 14:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 14:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红8 + 经济数据0） | fetched=7 rawTotal=104 flash=8 econ=0
+2026-03-30 14:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=2 rawTotal=30
+2026-03-30 14:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 14:00:00 [INFO] news-refresh - 后台刷新: 汇聚 39 条 | totalRaw=39
+2026-03-30 14:00:00 [INFO] news-store - 资讯入库: 39 条, 新增 11 条 | total=39 inserted=11
+2026-03-30 14:00:00 [INFO] news-refresh - 后台刷新完成: 新增11, pending16, 筛选0, 清理0, 耗时480ms | inserted=11 pendingCount=16 filtered=0 cleaned=0 elapsedMs=480
+2026-03-30 15:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 15:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 15:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 15:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 15:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红14 + 经济数据0） | fetched=14 rawTotal=104 flash=14 econ=0
+2026-03-30 15:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=2 rawTotal=30
+2026-03-30 15:00:02 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 15:00:02 [INFO] news-refresh - 后台刷新: 汇聚 46 条 | totalRaw=46
+2026-03-30 15:00:02 [INFO] news-store - 资讯入库: 46 条, 新增 18 条 | total=46 inserted=18
+2026-03-30 15:00:02 [INFO] news-refresh - 后台刷新完成: 新增18, pending34, 筛选0, 清理0, 耗时1994ms | inserted=18 pendingCount=34 filtered=0 cleaned=0 elapsedMs=1994
+2026-03-30 15:43:51 [INFO] router - 收到消息: 财经资讯 | messageId=om_x100b5396d5a347fcc3cb4ebd223be12 senderId=ou_602a22a5bc2b74f31f05d727e9e25c65 chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 isGroup=false
+2026-03-30 15:43:52 [INFO] agent-loop - 开始处理: 财经资讯 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 turn=7 historyLen=5 sender=ou_602a22a5bc2b74f31f05d727e9e25c65
+2026-03-30 15:43:52 [INFO] agent-loop - 模型路由 [work] | provider=qwen model=qwen3.5-plus scene=work
+2026-03-30 15:43:52 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 8 条消息 | iteration=1 totalMessages=6 sentMessages=8 hasSummary=true profileCount=7
+2026-03-30 15:43:54 [INFO] openai-compatible - LLM 响应: 1975ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=1975 promptTokens=4738 completionTokens=59 finishReason=tool_calls toolCallCount=1
+2026-03-30 15:43:54 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=4738 completionTokens=59
+2026-03-30 15:43:54 [INFO] agent-loop - 执行工具: finance_news({"action": "query", "count": 15}) | tool=finance_news callId=call_4a25e2d6c3fd47e7a936bc0d
+2026-03-30 15:43:54 [INFO] tool-finance-news - 执行资讯查询 | rawCount=15 minImportance=low action=query
+2026-03-30 15:43:54 [INFO] tool-finance-news - 查询输出 15 条 | kept=35 filtered=15
+2026-03-30 15:43:54 [INFO] agent-loop - 工具结果: 最新财经资讯（共 15 条）:
+
+🔴 [1] 09:17 (快讯)
+   恒指期货日盘开盘跌1.95%，报24345点，低水607点。
+
+🔴 [2] 09:20 金十数据整理：每日热门ETF要闻汇总（2026-03-30）
+   1. 特朗普：最想干的事就是获取伊朗石油。
+2. 伊朗外交部发言人：美国经由斡旋方提出的建议非常不合理。
+3. 伊朗称正实时监控“林肯”号航母，一旦进入射程将发射导弹 | tool=finance_news isError=false durationMs=5 rawLength=1623
+2026-03-30 15:43:54 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 10 条消息 | iteration=2 totalMessages=8 sentMessages=10 hasSummary=true profileCount=7
+2026-03-30 15:44:18 [INFO] openai-compatible - LLM 响应: 24027ms, finish=stop | provider=qwen model=qwen3.5-plus durationMs=24027 promptTokens=5953 completionTokens=1119 finishReason=stop toolCallCount=0
+2026-03-30 15:44:18 [INFO] agent-loop - LLM 响应: **📰 最新财经简报（2026-03-30 上午10:30）**
+
+**⚠️ 市场全景：地缘风险持续发酵，全球股市普跌，A股放量下挫**
+
+**1. 股市表现（全线走低）**
+*   **港股**：恒指开盘**-1.68%**，恒生科技指数**-2.78%**（现跌超3%）；比亚迪股份绩后跌超4%，蔚来-6%，小鹏-5%。
+*   **A股**：沪指**-0.74%**，深成指**-1.45%**，**创业板指跌逾2%**。下跌个股近3800只。
+*   **成交量**：沪深两市成交额**突破1万亿**（较昨日同时段放量1600亿），预计全天近**2.1万亿**——恐慌性抛盘涌现。
+
+**2 | finishReason=stop toolCallCount=0 promptTokens=5953 completionTokens=1119
+2026-03-30 15:44:18 [INFO] agent-loop - 发送最终回复 | chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 replyLen=1286
+2026-03-30 15:44:19 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 totalMessages=9
+2026-03-30 16:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 16:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 16:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 16:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 16:00:00 [ERROR] news-dfcf - 东方财富第 1 页请求异常 | err={"type":"TypeError","message":"fetch failed: ","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:14976:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async fetchPage (file:///app/dist/index.js:3021:16)\n    at async Object.fetch (file:///app/dist/index.js:3054:25)\n    at async file:///app/dist/index.js:3532:20\n    at async Promise.all (index 1)\n    at async NewsRefreshService.refresh (file:///app/dist/index.js:3529:28)\ncaused by: AggregateError [ETIMEDOUT]: \n    at internalConnectMultiple (node:net:1134:18)\n    at internalConnectMultiple (node:net:1210:5)\n    at Timeout.internalConnectMultipleTimeout (node:net:1742:5)\n    at listOnTimeout (node:internal/timers:587:11)\n    at process.processTimers (node:internal/timers:521:7)"} page=1
+2026-03-30 16:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=0
+2026-03-30 16:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红17 + 经济数据1） | fetched=18 rawTotal=105 flash=17 econ=1
+2026-03-30 16:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=2 rawTotal=30
+2026-03-30 16:00:00 [INFO] news-refresh - 后台刷新: 汇聚 20 条 | totalRaw=20
+2026-03-30 16:00:00 [INFO] news-store - 资讯入库: 20 条, 新增 16 条 | total=20 inserted=16
+2026-03-30 16:00:00 [INFO] news-refresh - pending 达到阈值 50，触发 LLM 筛选 | pendingCount=50
+2026-03-30 16:00:00 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen3.5-flash
+2026-03-30 16:00:07 [INFO] openai-compatible - LLM 响应: 7167ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=7167 promptTokens=6090 completionTokens=634 finishReason=stop toolCallCount=0
+2026-03-30 16:00:07 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=6090 completionTokens=634
+2026-03-30 16:00:07 [INFO] news-refresh - 后台刷新完成: 新增16, pending50, 筛选50, 清理0, 耗时7520ms | inserted=16 pendingCount=50 filtered=50 cleaned=0 elapsedMs=7520
+2026-03-30 17:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 17:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 17:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 17:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 17:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红12 + 经济数据1） | fetched=13 rawTotal=104 flash=12 econ=1
+2026-03-30 17:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=4 rawTotal=30
+2026-03-30 17:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 17:00:00 [INFO] news-refresh - 后台刷新: 汇聚 47 条 | totalRaw=47
+2026-03-30 17:00:00 [INFO] news-store - 资讯入库: 47 条, 新增 26 条 | total=47 inserted=26
+2026-03-30 17:00:00 [INFO] news-refresh - 后台刷新完成: 新增26, pending26, 筛选0, 清理0, 耗时632ms | inserted=26 pendingCount=26 filtered=0 cleaned=0 elapsedMs=632
+2026-03-30 18:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 18:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 18:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 18:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 18:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红9 + 经济数据0） | fetched=9 rawTotal=105 flash=9 econ=0
+2026-03-30 18:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=7 rawTotal=30
+2026-03-30 18:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 18:00:00 [INFO] news-refresh - 后台刷新: 汇聚 46 条 | totalRaw=46
+2026-03-30 18:00:00 [INFO] news-store - 资讯入库: 46 条, 新增 25 条 | total=46 inserted=25
+2026-03-30 18:00:00 [INFO] news-refresh - pending 达到阈值 51，触发 LLM 筛选 | pendingCount=51
+2026-03-30 18:00:00 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen3.5-flash
+2026-03-30 18:00:08 [INFO] openai-compatible - LLM 响应: 7481ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=7481 promptTokens=6267 completionTokens=609 finishReason=stop toolCallCount=0
+2026-03-30 18:00:08 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=6267 completionTokens=609
+2026-03-30 18:00:08 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 1 条 | count=1 model=qwen3.5-flash
+2026-03-30 18:00:08 [INFO] openai-compatible - LLM 响应: 477ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=477 promptTokens=625 completionTokens=14 finishReason=stop toolCallCount=0
+2026-03-30 18:00:08 [INFO] news-llm-filter - LLM 筛选完成: 解析 1/1 条 | parsed=1 total=1 promptTokens=625 completionTokens=14
+2026-03-30 18:00:08 [INFO] news-refresh - 后台刷新完成: 新增25, pending51, 筛选51, 清理0, 耗时8760ms | inserted=25 pendingCount=51 filtered=51 cleaned=0 elapsedMs=8760
+2026-03-30 19:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 19:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 19:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 19:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 19:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红10 + 经济数据0） | fetched=9 rawTotal=104 flash=10 econ=0
+2026-03-30 19:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=10 rawTotal=30
+2026-03-30 19:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 19:00:00 [INFO] news-refresh - 后台刷新: 汇聚 49 条 | totalRaw=49
+2026-03-30 19:00:00 [INFO] news-store - 资讯入库: 49 条, 新增 31 条 | total=49 inserted=31
+2026-03-30 19:00:00 [INFO] news-refresh - 后台刷新完成: 新增31, pending31, 筛选0, 清理0, 耗时912ms | inserted=31 pendingCount=31 filtered=0 cleaned=0 elapsedMs=912
+2026-03-30 20:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 20:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 20:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 20:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 20:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=5 rawTotal=30
+2026-03-30 20:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红17 + 经济数据0） | fetched=16 rawTotal=105 flash=17 econ=0
+2026-03-30 20:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 20:00:00 [INFO] news-refresh - 后台刷新: 汇聚 51 条 | totalRaw=51
+2026-03-30 20:00:00 [INFO] news-store - 资讯入库: 51 条, 新增 23 条 | total=51 inserted=23
+2026-03-30 20:00:00 [INFO] news-refresh - pending 达到阈值 54，触发 LLM 筛选 | pendingCount=54
+2026-03-30 20:00:00 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen3.5-flash
+2026-03-30 20:00:08 [INFO] openai-compatible - LLM 响应: 7813ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=7813 promptTokens=6348 completionTokens=689 finishReason=stop toolCallCount=0
+2026-03-30 20:00:08 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=6348 completionTokens=689
+2026-03-30 20:00:08 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 4 条 | count=4 model=qwen3.5-flash
+2026-03-30 20:00:09 [INFO] openai-compatible - LLM 响应: 758ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=758 promptTokens=790 completionTokens=58 finishReason=stop toolCallCount=0
+2026-03-30 20:00:09 [INFO] news-llm-filter - LLM 筛选完成: 解析 4/4 条 | parsed=4 total=4 promptTokens=790 completionTokens=58
+2026-03-30 20:00:09 [INFO] news-refresh - 后台刷新完成: 新增23, pending54, 筛选54, 清理0, 耗时9140ms | inserted=23 pendingCount=54 filtered=54 cleaned=0 elapsedMs=9140
+2026-03-30 21:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 21:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 21:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 21:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 21:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红10 + 经济数据1） | fetched=11 rawTotal=104 flash=10 econ=1
+2026-03-30 21:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=9 rawTotal=30
+2026-03-30 21:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 21:00:00 [INFO] news-refresh - 后台刷新: 汇聚 50 条 | totalRaw=50
+2026-03-30 21:00:00 [INFO] news-store - 资讯入库: 50 条, 新增 23 条 | total=50 inserted=23
+2026-03-30 21:00:00 [INFO] news-refresh - 后台刷新完成: 新增23, pending23, 筛选0, 清理0, 耗时573ms | inserted=23 pendingCount=23 filtered=0 cleaned=0 elapsedMs=573
+2026-03-30 22:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 22:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 22:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 22:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 22:00:00 [ERROR] news-cls - 财联社请求异常 | err={"type":"TypeError","message":"fetch failed: ","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:14976:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.fetch (file:///app/dist/index.js:2944:22)\n    at async file:///app/dist/index.js:3532:20\n    at async Promise.all (index 0)\n    at async NewsRefreshService.refresh (file:///app/dist/index.js:3529:28)\ncaused by: AggregateError [ETIMEDOUT]: \n    at internalConnectMultiple (node:net:1134:18)\n    at internalConnectMultiple (node:net:1210:5)\n    at Timeout.internalConnectMultipleTimeout (node:net:1742:5)\n    at listOnTimeout (node:internal/timers:587:11)\n    at process.processTimers (node:internal/timers:521:7)"}
+2026-03-30 22:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红22 + 经济数据0） | fetched=20 rawTotal=104 flash=22 econ=0
+2026-03-30 22:00:01 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 22:00:01 [INFO] news-refresh - 后台刷新: 汇聚 50 条 | totalRaw=50
+2026-03-30 22:00:01 [INFO] news-store - 资讯入库: 50 条, 新增 21 条 | total=50 inserted=21
+2026-03-30 22:00:01 [INFO] news-refresh - 后台刷新完成: 新增21, pending44, 筛选0, 清理0, 耗时1778ms | inserted=21 pendingCount=44 filtered=0 cleaned=0 elapsedMs=1778
+2026-03-30 22:15:34 [INFO] main - 收到关闭信号 | signal=SIGTERM
+2026-03-30 22:55:36 [INFO] main - FroadClaw-Agent 启动中...
+2026-03-30 22:55:36 [INFO] config - 加载配置文件 | path=/app/configs/config.yaml
+2026-03-30 22:55:36 [INFO] sqlite-store - SQLite (sql.js) 已初始化 | path=/app/data/froadclaw.db
+2026-03-30 22:55:36 [INFO] llm-registry - 注册 LLM Provider | id=qwen
+2026-03-30 22:55:36 [INFO] main - LLM Provider 注册成功，可用模型: qwen3.5-plus, qwen3.5-flash | id=qwen models=["qwen3.5-plus","qwen3.5-flash"]
+2026-03-30 22:55:36 [INFO] scheduler-store - scheduled_task 表已就绪
+2026-03-30 22:55:36 [INFO] channel-registry - 注册渠道 | id=feishu
+2026-03-30 22:55:36 [INFO] builtin-tools - 内置工具创建完成 | count=5 names=["schedule_reminder","list_reminders","cancel_reminder","web_search","finance_news"]
+2026-03-30 22:55:36 [INFO] tool-registry - 注册工具 | name=schedule_reminder
+2026-03-30 22:55:36 [INFO] tool-registry - 注册工具 | name=list_reminders
+2026-03-30 22:55:36 [INFO] tool-registry - 注册工具 | name=cancel_reminder
+2026-03-30 22:55:36 [INFO] tool-registry - 注册工具 | name=web_search
+2026-03-30 22:55:36 [INFO] tool-registry - 注册工具 | name=finance_news
+2026-03-30 22:55:36 [INFO] news-refresh - 资讯定时刷新已启动: 0 * * * * | cron=0 * * * *
+2026-03-30 22:55:36 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 22:55:36 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 22:55:36 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 22:55:36 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 22:55:36 [INFO] tool-registry - 工具启动钩子已执行 | name=finance_news
+2026-03-30 22:55:36 [INFO] scheduler - agent 触发回调已注册
+2026-03-30 22:55:36 [INFO] main - HTTP 服务已启动 | port=3000
+2026-03-30 22:55:36 [INFO] channel-registry - 启动渠道 | id=feishu
+2026-03-30 22:55:36 [INFO] feishu - 启动飞书 WebSocket 长连接
+2026-03-30 22:55:36 [ERROR] news-cls - 财联社请求异常 | err={"type":"TypeError","message":"fetch failed: ","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:14976:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.fetch (file:///app/dist/index.js:2944:22)\n    at async file:///app/dist/index.js:3532:20\n    at async Promise.all (index 0)\n    at async NewsRefreshService.refresh (file:///app/dist/index.js:3529:28)\ncaused by: AggregateError [ETIMEDOUT]: \n    at internalConnectMultiple (node:net:1134:18)\n    at internalConnectMultiple (node:net:1210:5)\n    at Timeout.internalConnectMultipleTimeout (node:net:1742:5)\n    at listOnTimeout (node:internal/timers:587:11)\n    at process.processTimers (node:internal/timers:521:7)"}
+2026-03-30 22:55:36 [INFO] news-jin10 - 金十数据拉取完成（加红18 + 经济数据1） | fetched=19 rawTotal=104 flash=18 econ=1
+2026-03-30 22:55:36 [INFO] feishu - 获取 bot 信息成功 | botOpenId=ou_daddce1ef6963b2e26c4f4b59932eb8f
+2026-03-30 22:55:36 [INFO] feishu - 飞书 WebSocket 已连接
+2026-03-30 22:55:36 [INFO] scheduler - 调度引擎启动，已加载 0 个任务 | total=0 registered=0 expired=0
+2026-03-30 22:55:36 [INFO] main - FroadClaw-Agent 已就绪
+2026-03-30 22:55:37 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 22:55:37 [INFO] news-refresh - 后台刷新: 汇聚 49 条 | totalRaw=49
+2026-03-30 22:55:37 [INFO] news-store - 资讯入库: 49 条, 新增 19 条 | total=49 inserted=19
+2026-03-30 22:55:37 [INFO] news-refresh - pending 达到阈值 63，触发 LLM 筛选 | pendingCount=63
+2026-03-30 22:55:37 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 50 条 | count=50 model=qwen3.5-flash
+2026-03-30 22:55:43 [INFO] openai-compatible - LLM 响应: 6106ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=6106 promptTokens=4461 completionTokens=663 finishReason=stop toolCallCount=0
+2026-03-30 22:55:43 [INFO] news-llm-filter - LLM 筛选完成: 解析 50/50 条 | parsed=50 total=50 promptTokens=4461 completionTokens=663
+2026-03-30 22:55:43 [INFO] news-llm-filter - 开始 LLM 资讯筛选: 13 条 | count=13 model=qwen3.5-flash
+2026-03-30 22:55:45 [INFO] openai-compatible - LLM 响应: 1755ms, finish=stop | provider=qwen model=qwen3.5-flash durationMs=1755 promptTokens=1988 completionTokens=185 finishReason=stop toolCallCount=0
+2026-03-30 22:55:45 [INFO] news-llm-filter - LLM 筛选完成: 解析 13/13 条 | parsed=13 total=13 promptTokens=1988 completionTokens=185
+2026-03-30 22:55:45 [INFO] news-refresh - 后台刷新完成: 新增19, pending63, 筛选63, 清理0, 耗时8757ms | inserted=19 pendingCount=63 filtered=63 cleaned=0 elapsedMs=8757
+2026-03-30 22:55:49 [INFO] router - 收到消息: 财经资讯 | messageId=om_x100b539ca19838a4b2952155a17b2d6 senderId=ou_602a22a5bc2b74f31f05d727e9e25c65 chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 isGroup=false
+2026-03-30 22:55:50 [INFO] agent-loop - 开始处理: 财经资讯 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 turn=8 historyLen=9 sender=ou_602a22a5bc2b74f31f05d727e9e25c65
+2026-03-30 22:55:50 [INFO] agent-loop - 模型路由 [work] | provider=qwen model=qwen3.5-plus scene=work
+2026-03-30 22:55:50 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 12 条消息 | iteration=1 totalMessages=10 sentMessages=12 hasSummary=true profileCount=7
+2026-03-30 22:55:52 [INFO] openai-compatible - LLM 响应: 1963ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=1963 promptTokens=6779 completionTokens=60 finishReason=tool_calls toolCallCount=1
+2026-03-30 22:55:52 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=6779 completionTokens=60
+2026-03-30 22:55:52 [INFO] agent-loop - 执行工具: finance_news({"action": "query", "count": 15}) | tool=finance_news callId=call_5e2a9c3bdc754c198f6e8ec7
+2026-03-30 22:55:52 [INFO] tool-finance-news - 执行资讯查询 | rawCount=15 minImportance=low action=query
+2026-03-30 22:55:52 [INFO] tool-finance-news - 查询输出 15 条 | kept=35 filtered=15
+2026-03-30 22:55:52 [INFO] agent-loop - 工具结果: 最新财经资讯（共 15 条）:
+
+🔴 [1] 20:34 (快讯)
+   美国财长贝森特：（就伊朗与石油问题）美国迟早将控制霍尔木兹海峡。
+
+🔴 [2] 20:35 兆易创新：2025年净利润同比增长49.47% 拟10派7.5元 [A股公告速递, 半导体芯片]
+   【兆易创新：2025年净利润16.48亿元 同比增长49.47%】财联社3月30日电，兆易创新(603986.SH)公告称，2 | tool=finance_news isError=false durationMs=8 rawLength=1326
+2026-03-30 22:55:52 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 14 条消息 | iteration=2 totalMessages=12 sentMessages=14 hasSummary=true profileCount=7
+2026-03-30 22:56:11 [INFO] openai-compatible - LLM 响应: 19037ms, finish=stop | provider=qwen model=qwen3.5-plus durationMs=19037 promptTokens=7780 completionTokens=990 finishReason=stop toolCallCount=0
+2026-03-30 22:56:11 [INFO] agent-loop - LLM 响应: **📰 最新财经简报（2026-03-30 晚间）**
+
+**⚠️ 核心焦点：美伊对峙升级，美股半导体重挫，国内芯片龙头业绩亮眼**
+
+**1. 地缘政治与能源（局势持续紧张）**
+*   **美方表态**：美国财长贝森特称“迟早将控制霍尔木兹海峡”；日本呼吁G7及IEA准备协调释放石油储备。
+*   **制裁延长**：欧盟将对伊朗制裁机制延长至2027年4月。
+*   **市场反应**：夜盘沪银、沪锡涨超2%，沪金涨超1%；甲醇、低硫燃料油跌超2%。
+
+**2. 美股市场（高开低走，半导体领跌）**
+*   **指数表现**：纳指转跌，标普500持平，道指微涨0.3%。
+*   **半导体 | finishReason=stop toolCallCount=0 promptTokens=7780 completionTokens=990
+2026-03-30 22:56:11 [INFO] agent-loop - 发送最终回复 | chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 replyLen=1515
+2026-03-30 22:56:12 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 totalMessages=13
+2026-03-30 23:00:00 [INFO] news-refresh - 开始后台资讯刷新...
+2026-03-30 23:00:00 [INFO] news-cls - 拉取财联社电报 | count=30
+2026-03-30 23:00:00 [INFO] news-dfcf - 拉取东方财富资讯 | count=30 pages=3
+2026-03-30 23:00:00 [INFO] news-jin10 - 拉取金十数据快讯 | count=30
+2026-03-30 23:00:00 [INFO] news-jin10 - 金十数据拉取完成（加红19 + 经济数据1） | fetched=19 rawTotal=104 flash=19 econ=1
+2026-03-30 23:00:00 [INFO] news-dfcf - 东方财富资讯拉取完成 | fetched=30
+2026-03-30 23:00:00 [INFO] news-cls - 财联社电报拉取完成（仅加红） | fetched=1 rawTotal=30
+2026-03-30 23:00:00 [INFO] news-refresh - 后台刷新: 汇聚 50 条 | totalRaw=50
+2026-03-30 23:00:00 [INFO] news-store - 资讯入库: 50 条, 新增 3 条 | total=50 inserted=3
+2026-03-30 23:00:00 [INFO] news-refresh - 后台刷新完成: 新增3, pending3, 筛选0, 清理0, 耗时851ms | inserted=3 pendingCount=3 filtered=0 cleaned=0 elapsedMs=851
+2026-03-30 23:51:51 [INFO] router - 收到消息: 财经资讯 | messageId=om_x100b539c827a6ca0b2c82e520caf976 senderId=ou_602a22a5bc2b74f31f05d727e9e25c65 chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 isGroup=false
+2026-03-30 23:51:52 [INFO] agent-loop - 开始处理: 财经资讯 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 turn=9 historyLen=13 sender=ou_602a22a5bc2b74f31f05d727e9e25c65
+2026-03-30 23:51:52 [INFO] agent-loop - 模型路由 [work] | provider=qwen model=qwen3.5-plus scene=work
+2026-03-30 23:51:52 [INFO] agent-loop - LLM 调用 (第 1 轮), 发送 16 条消息 | iteration=1 totalMessages=14 sentMessages=16 hasSummary=true profileCount=7
+2026-03-30 23:51:54 [INFO] openai-compatible - LLM 响应: 1705ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=1705 promptTokens=8746 completionTokens=63 finishReason=tool_calls toolCallCount=1
+2026-03-30 23:51:54 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=8746 completionTokens=63
+2026-03-30 23:51:54 [INFO] agent-loop - 执行工具: finance_news({"action": "query", "count": 15}) | tool=finance_news callId=call_958b0809df03422f8a6b2339
+2026-03-30 23:51:54 [INFO] tool-finance-news - 执行资讯查询 | rawCount=15 minImportance=low action=query
+2026-03-30 23:51:54 [INFO] tool-finance-news - 查询输出 15 条 | kept=35 filtered=15
+2026-03-30 23:51:54 [INFO] agent-loop - 工具结果: 最新财经资讯（共 15 条）:
+
+🔴 [1] 20:34 (快讯)
+   美国财长贝森特：（就伊朗与石油问题）美国迟早将控制霍尔木兹海峡。
+
+🔴 [2] 20:35 兆易创新：2025年净利润同比增长49.47% 拟10派7.5元 [A股公告速递, 半导体芯片]
+   【兆易创新：2025年净利润16.48亿元 同比增长49.47%】财联社3月30日电，兆易创新(603986.SH)公告称，2 | tool=finance_news isError=false durationMs=4 rawLength=1326
+2026-03-30 23:51:54 [INFO] agent-loop - LLM 调用 (第 2 轮), 发送 18 条消息 | iteration=2 totalMessages=16 sentMessages=18 hasSummary=true profileCount=7
+2026-03-30 23:51:57 [INFO] openai-compatible - LLM 响应: 2524ms, finish=tool_calls | provider=qwen model=qwen3.5-plus durationMs=2524 promptTokens=9747 completionTokens=114 finishReason=tool_calls toolCallCount=1
+2026-03-30 23:51:57 [INFO] agent-loop - LLM 响应: (无文本, 仅工具调用) | finishReason=tool_calls toolCallCount=1 promptTokens=9747 completionTokens=114
+2026-03-30 23:51:57 [INFO] agent-loop - 执行工具: finance_news({"action": "query", "count": 15}) | tool=finance_news callId=call_aa4cf8b97f334b579792d9f8
+2026-03-30 23:51:57 [INFO] tool-finance-news - 执行资讯查询 | rawCount=15 minImportance=low action=query
+2026-03-30 23:51:57 [INFO] tool-finance-news - 查询输出 15 条 | kept=35 filtered=15
+2026-03-30 23:51:57 [INFO] agent-loop - 工具结果: 最新财经资讯（共 15 条）:
+
+🔴 [1] 20:34 (快讯)
+   美国财长贝森特：（就伊朗与石油问题）美国迟早将控制霍尔木兹海峡。
+
+🔴 [2] 20:35 兆易创新：2025年净利润同比增长49.47% 拟10派7.5元 [A股公告速递, 半导体芯片]
+   【兆易创新：2025年净利润16.48亿元 同比增长49.47%】财联社3月30日电，兆易创新(603986.SH)公告称，2 | tool=finance_news isError=false durationMs=6 rawLength=1326
+2026-03-30 23:51:57 [INFO] agent-loop - LLM 调用 (第 3 轮), 发送 20 条消息 | iteration=3 totalMessages=18 sentMessages=20 hasSummary=true profileCount=7
+2026-03-30 23:52:05 [INFO] openai-compatible - LLM 响应: 8432ms, finish=stop | provider=qwen model=qwen3.5-plus durationMs=8432 promptTokens=10748 completionTokens=451 finishReason=stop toolCallCount=0
+2026-03-30 23:52:05 [INFO] agent-loop - LLM 响应: **📰 资讯更新提示**
+
+当前暂无新增财经资讯（与上一条晚间简报内容一致）。资讯获取仍在后台自动刷新中（每分钟一次），如有重大更新将立即推送。
+
+**晚间核心要点回顾：**
+
+**⚠️ 地缘风险**
+- 美国财长：迟早控制霍尔木兹海峡
+- 欧盟延长对伊朗制裁至2027年
+- 日本呼吁G7协调释放石油储备
+
+**📉 美股半导体重挫**
+- 费城半导体指数跌至**近三个月低点**（-2.5%）
+- 纳指转跌，道指微涨0.3%
+
+**📈 国内业绩亮点**
+- **兆易创新**：净利+49.47%，10派7.5元（存储芯片龙头超预期）
+- **壁仞科技**：收入+207.2%（国产GPU加速） | finishReason=stop toolCallCount=0 promptTokens=10748 completionTokens=451
+2026-03-30 23:52:05 [INFO] agent-loop - 发送最终回复 | chatId=oc_a1bfc26e6d6e511837456e31dacca3c5 replyLen=451
+2026-03-30 23:52:06 [INFO] agent-loop - 轮次结束，持久化会话 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 totalMessages=19
+2026-03-30 23:52:06 [INFO] agent-loop - 未摘要消息达到阈值，触发异步压缩 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 unsummarizedCount=19 threshold=16
+2026-03-30 23:52:06 [INFO] memory-compressor - 开始异步摘要压缩，压缩 13 条消息 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 toCompress=13 keep=6 existingSummaryLen=795
+2026-03-30 23:52:20 [INFO] openai-compatible - LLM 响应: 14207ms, finish=stop | provider=qwen model=qwen-plus durationMs=14207 promptTokens=1877 completionTokens=624 finishReason=stop toolCallCount=0
+2026-03-30 23:52:20 [INFO] memory-compressor - 摘要压缩完成 | sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 summaryLen=799 compressedCount=13
+2026-03-30 23:52:20 [INFO] agent-loop - 内存消息裁剪 | keepCount=6 before=19 after=6
+2026-03-30 23:52:20 [INFO] memory-extractor - 摘要有变化 (Jaccard=0.000 < 0.85)，继续画像抽取 | userId=ou_602a22a5bc2b74f31f05d727e9e25c65 similarity=0.000 threshold=0.85
+2026-03-30 23:52:20 [INFO] memory-extractor - 开始抽取用户画像 (已有 7 条) | userId=ou_602a22a5bc2b74f31f05d727e9e25c65 sessionId=feishu:oc_a1bfc26e6d6e511837456e31dacca3c5:ou_602a22a5bc2b74f31f05d727e9e25c65 summaryLen=799 existingCount=7
+2026-03-30 23:52:25 [INFO] openai-compatible - LLM 响应: 4308ms, finish=stop | provider=qwen model=qwen-plus durationMs=4308 promptTokens=1155 completionTokens=177 finishReason=stop toolCallCount=0
+2026-03-30 23:52:25 [INFO] memory-extractor - 用户画像更新: 7 条 (新增 0, 更新 2, 淘汰 0) | userId=ou_602a22a5bc2b74f31f05d727e9e25c65 total=7 added=0 updated=2 removed=0 before=7
